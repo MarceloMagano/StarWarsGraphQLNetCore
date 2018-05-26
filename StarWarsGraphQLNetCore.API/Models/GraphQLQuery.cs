@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StarWarsGraphQL.API.Models
+namespace StarWarsGraphQLNetCore.API.Models
 {
     public class GraphQLQuery
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StarWarsGraphQL.Core.Models
+namespace StarWarsGraphQLNetCore.Core.Models
 {
     public class Droid
     {

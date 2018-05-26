@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace StarWarsGraphQL.API
+namespace StarWarsGraphQLNetCore.API
 {
     public class Program
     {

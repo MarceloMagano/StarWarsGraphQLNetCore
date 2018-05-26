@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQL.API", "StarWarsGraphQL.API\StarWarsGraphQL.API.csproj", "{98D10F55-1B65-4B4C-A118-20AE9201C7C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.API", "StarWarsGraphQLNetCore.API\StarWarsGraphQLNetCore.API.csproj", "{98D10F55-1B65-4B4C-A118-20AE9201C7C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQL.Core", "StarWarsGraphQL.Core\StarWarsGraphQL.Core.csproj", "{9558215E-1ABF-46E7-A8EF-68C325A2175A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.Core", "StarWarsGraphQLNetCore.Core\StarWarsGraphQLNetCore.Core.csproj", "{9558215E-1ABF-46E7-A8EF-68C325A2175A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQL.Data", "StarWarsGraphQL.Data\StarWarsGraphQL.Data.csproj", "{ED6261A5-8324-416B-A531-C1ABB73D6D99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.Data", "StarWarsGraphQLNetCore.Data\StarWarsGraphQLNetCore.Data.csproj", "{ED6261A5-8324-416B-A531-C1ABB73D6D99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

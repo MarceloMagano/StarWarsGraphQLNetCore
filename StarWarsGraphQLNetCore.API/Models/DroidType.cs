@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
-using StarWarsGraphQL.Core.Models;
+using StarWarsGraphQLNetCore.Core.Models;
 
-namespace StarWarsGraphQL.API.Models
+namespace StarWarsGraphQLNetCore.API.Models
 {
     public class DroidType : ObjectGraphType<Droid>
     {

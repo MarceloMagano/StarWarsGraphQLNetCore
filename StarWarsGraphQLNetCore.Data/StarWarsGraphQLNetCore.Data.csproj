@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>StarWarsGraphQLNetCore.Data</AssemblyName>
+    <RootNamespace>StarWarsGraphQLNetCore.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StarWarsGraphQL.Core\StarWarsGraphQLNetCore.Core.csproj" />
+  </ItemGroup>
+
+</Project>

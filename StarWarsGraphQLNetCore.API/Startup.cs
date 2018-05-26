@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace StarWarsGraphQL.API
+namespace StarWarsGraphQLNetCore.API
 {
     public class Startup
     {

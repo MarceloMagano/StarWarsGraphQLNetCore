@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyName>StarWarsGraphQL.API</AssemblyName>
+    <AssemblyName>StarWarsGraphQLNetCore.API</AssemblyName>
     <RootNamespace>StarWarsGraphQL.API</RootNamespace>
   </PropertyGroup>
 
@@ -21,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StarWarsGraphQL.Core\StarWarsGraphQL.Core.csproj" />
+    <ProjectReference Include="..\StarWarsGraphQL.Core\StarWarsGraphQLNetCore.Core.csproj" />
+    <ProjectReference Include="..\StarWarsGraphQL.Data\StarWarsGraphQLNetCore.Data.csproj" />
   </ItemGroup>
 
 </Project>

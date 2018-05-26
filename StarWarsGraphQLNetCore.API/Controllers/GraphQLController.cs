@@ -1,10 +1,11 @@
 ﻿using GraphQL;
 using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
-using StarWarsGraphQL.API.Models;
+using StarWarsGraphQLNetCore.API.Models;
+using StarWarsGraphQLNetCore.Data.InMemory;
 using System.Threading.Tasks;
 
-namespace StarWarsGraphQL.API.Controllers
+namespace StarWarsGraphQLNetCore.API.Controllers
 {
     //[Produces("application/json")]
     [Route("graphQL")]
@@ -13,7 +14,7 @@ namespace StarWarsGraphQL.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
         {
-            Schema schema = new Schema { Query = new StarWarsQuery() };
+            Schema schema = new Schema { Query = new StarWarsQuery(new DroidRepository()) };
 
             ExecutionResult result = await new DocumentExecuter().ExecuteAsync(_ =>
             {
