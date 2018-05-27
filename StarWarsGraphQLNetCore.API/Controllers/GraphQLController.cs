@@ -11,10 +11,17 @@ namespace StarWarsGraphQLNetCore.API.Controllers
     [Route("graphQL")]
     public class GraphQLController : Controller
     {
+        private StarWarsQuery _starWarsQuery { get; set; }
+
+        public GraphQLController(StarWarsQuery starWarsQuery)
+        {
+            _starWarsQuery = starWarsQuery;
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
         {
-            Schema schema = new Schema { Query = new StarWarsQuery(new DroidRepository()) };
+            Schema schema = new Schema { Query = _starWarsQuery };
 
             ExecutionResult result = await new DocumentExecuter().ExecuteAsync(_ =>
             {

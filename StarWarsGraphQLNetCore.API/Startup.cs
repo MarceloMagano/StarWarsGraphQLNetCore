@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using StarWarsGraphQLNetCore.API.Models;
+using StarWarsGraphQLNetCore.Core.Data;
+using StarWarsGraphQLNetCore.Core.Models;
+using StarWarsGraphQLNetCore.Data.EntityFramework.Seed;
+using StarWarsGraphQLNetCore.Data.InMemory;
 
 namespace StarWarsGraphQLNetCore.API
 {
@@ -24,17 +25,27 @@ namespace StarWarsGraphQLNetCore.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddTransient<StarWarsQuery>();
+            services.AddTransient<IDroidRepository, DroidRepository>();
+            //config DI to run data seed
+            services.AddDbContext<StarWarsContext>(options=> options.UseSqlServer(Configuration["ConnectionStrings:StarWarsDatabaseConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, StarWarsContext db)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
             app.UseMvc();
+
+            db.EnsureSeedData();
         }
     }
 }
