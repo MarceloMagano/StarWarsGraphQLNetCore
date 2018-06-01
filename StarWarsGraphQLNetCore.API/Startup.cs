@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using StarWarsGraphQLNetCore.API.Models;
 using StarWarsGraphQLNetCore.Core.Data;
-using StarWarsGraphQLNetCore.Core.Models;
+using StarWarsGraphQLNetCore.Data.EntityFramework;
 using StarWarsGraphQLNetCore.Data.EntityFramework.Seed;
 using StarWarsGraphQLNetCore.Data.InMemory;
 
@@ -43,6 +43,7 @@ namespace StarWarsGraphQLNetCore.API
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseStaticFiles();
             app.UseMvc();
 
             db.EnsureSeedData();

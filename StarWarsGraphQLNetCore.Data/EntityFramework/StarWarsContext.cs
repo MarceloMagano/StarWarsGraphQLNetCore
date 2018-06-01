@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StarWarsGraphQLNetCore.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StarWarsGraphQLNetCore.Core.Models
+namespace StarWarsGraphQLNetCore.Data.EntityFramework
 {
     public class StarWarsContext : DbContext
     {

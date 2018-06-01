@@ -18,6 +18,12 @@ namespace StarWarsGraphQLNetCore.API.Controllers
             _starWarsQuery = starWarsQuery;
         }
 
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
         {
