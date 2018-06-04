@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +27,10 @@
   <ItemGroup>
     <ProjectReference Include="..\StarWarsGraphQLNetCore.Core\StarWarsGraphQLNetCore.Core.csproj" />
     <ProjectReference Include="..\StarWarsGraphQLNetCore.Data\StarWarsGraphQLNetCore.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
 
 </Project>
