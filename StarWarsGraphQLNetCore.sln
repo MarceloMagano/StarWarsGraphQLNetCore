@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.Data", "StarWarsGraphQLNetCore.Data\StarWarsGraphQLNetCore.Data.csproj", "{ED6261A5-8324-416B-A531-C1ABB73D6D99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsGraphQLNetCore.Tests.Unit", "StarWarsGraphQLNetCore.Tests.Unit\StarWarsGraphQLNetCore.Tests.Unit.csproj", "{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ED6261A5-8324-416B-A531-C1ABB73D6D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED6261A5-8324-416B-A531-C1ABB73D6D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED6261A5-8324-416B-A531-C1ABB73D6D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
