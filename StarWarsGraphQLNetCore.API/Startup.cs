@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using GraphQL;
+using GraphQL.Types;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,12 +16,20 @@ namespace StarWarsGraphQLNetCore.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            // creating ConfigurationBuilder using appsettings and enviroment based appsettings
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
+            Env = env;
         }
 
         public IConfiguration Configuration { get; }
+        private IHostingEnvironment Env { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -28,8 +38,21 @@ namespace StarWarsGraphQLNetCore.API
 
             services.AddTransient<StarWarsQuery>();
             services.AddTransient<IDroidRepository, DroidRepository>();
-            //config DI to run data seed
-            services.AddDbContext<StarWarsContext>(options=> options.UseSqlServer(Configuration["ConnectionStrings:StarWarsDatabaseConnection"]));
+
+
+            if (Env.IsEnvironment("Test"))
+            {
+                services.AddDbContext<StarWarsContext>(options => options.UseInMemoryDatabase(databaseName: "StarWars"));
+            }
+            else
+            {
+                //config DI to run data seed
+                services.AddDbContext<StarWarsContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:StarWarsDatabaseConnection"]));
+            }
+
+            services.AddTransient<IDocumentExecuter, DocumentExecuter>();
+            ServiceProvider sp = services.BuildServiceProvider();
+            services.AddTransient<ISchema>(_ => new Schema { Query = sp.GetService<StarWarsQuery>() });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

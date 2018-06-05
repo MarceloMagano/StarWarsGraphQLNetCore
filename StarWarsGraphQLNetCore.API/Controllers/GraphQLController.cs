@@ -1,6 +1,8 @@
 ﻿using GraphQL;
 using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using StarWarsGraphQLNetCore.API.Models;
 using StarWarsGraphQLNetCore.Data.InMemory;
 using System.Threading.Tasks;
@@ -11,35 +13,37 @@ namespace StarWarsGraphQLNetCore.API.Controllers
     [Route("graphQL")]
     public class GraphQLController : Controller
     {
-        private StarWarsQuery _starWarsQuery { get; set; }
+        private ISchema _schema { get; set; }
+        private IDocumentExecuter _documentExecuter { get; set; }
+        private readonly ILogger _logger;
 
-        public GraphQLController(StarWarsQuery starWarsQuery)
+        public GraphQLController(IDocumentExecuter documentExecuter, ISchema schema, ILogger<GraphQLController> logger)
         {
-            _starWarsQuery = starWarsQuery;
+            _documentExecuter = documentExecuter;
+            _schema = schema;
+            _logger = logger;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
+            _logger.LogInformation("Got request for GraphiQL. Sending GUI back");
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] GraphQLQuery query)
         {
-            Schema schema = new Schema { Query = _starWarsQuery };
-
-            ExecutionResult result = await new DocumentExecuter().ExecuteAsync(_ =>
-            {
-                _.Schema = schema;
-                _.Query = query.Query;
-            }).ConfigureAwait(false);
+            ExecutionOptions executionOptions = new ExecutionOptions { Schema = _schema, Query = query.Query };
+            ExecutionResult result = await _documentExecuter.ExecuteAsync(executionOptions).ConfigureAwait(false);
 
             if (result.Errors?.Count > 0)
             {
+                _logger.LogError("GraphQL errors: {0}", result.Errors);
                 return BadRequest();
             }
 
+            _logger.LogDebug("GraphQL execution result: {result}", JsonConvert.SerializeObject(result.Data));
             return Ok(result);
         }
     }

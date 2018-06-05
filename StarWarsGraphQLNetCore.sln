@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.Data", "StarWarsGraphQLNetCore.Data\StarWarsGraphQLNetCore.Data.csproj", "{ED6261A5-8324-416B-A531-C1ABB73D6D99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsGraphQLNetCore.Tests.Unit", "StarWarsGraphQLNetCore.Tests.Unit\StarWarsGraphQLNetCore.Tests.Unit.csproj", "{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsGraphQLNetCore.Tests.Unit", "StarWarsGraphQLNetCore.Tests.Unit\StarWarsGraphQLNetCore.Tests.Unit.csproj", "{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{98680857-F29A-43E0-8341-CF928CE5947E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsGraphQLNetCore.Tests.Integration", "StarWarsGraphQLNetCore.Tests.Integration\StarWarsGraphQLNetCore.Tests.Integration.csproj", "{F9C277C5-FCC9-49B6-90F2-3112E454D09E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,17 @@ Global
 		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C277C5-FCC9-49B6-90F2-3112E454D09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C277C5-FCC9-49B6-90F2-3112E454D09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C277C5-FCC9-49B6-90F2-3112E454D09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C277C5-FCC9-49B6-90F2-3112E454D09E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC56A325-9F84-4247-AD3C-ED122CC9FCA9} = {98680857-F29A-43E0-8341-CF928CE5947E}
+		{F9C277C5-FCC9-49B6-90F2-3112E454D09E} = {98680857-F29A-43E0-8341-CF928CE5947E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3FB41CC7-0FA3-44DB-A491-29E38DD9596F}
