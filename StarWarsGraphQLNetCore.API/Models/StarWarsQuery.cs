@@ -14,7 +14,7 @@ namespace StarWarsGraphQLNetCore.API.Models
 
         public StarWarsQuery(IDroidRepository _droidRepository)
         {
-            Field<DroidType>("hero", resolve: context => _droidRepository.Get(1));
+            Field<DroidType>("hero", resolve: context => _droidRepository.Get(2001));
         }
     }
 }

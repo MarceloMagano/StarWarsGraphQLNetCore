@@ -4,8 +4,8 @@ using System.Text;
 
 namespace StarWarsGraphQLNetCore.Core.Models
 {
-    public class Droid : Character
+    public class Human : Character
     {
-        public string PrimaryFunction { get; set; }
+        public Planet HomePlanet { get; set; }
     }
 }

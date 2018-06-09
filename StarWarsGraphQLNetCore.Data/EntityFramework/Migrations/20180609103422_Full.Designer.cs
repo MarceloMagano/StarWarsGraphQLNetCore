@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarWarsGraphQLNetCore.Data.EntityFramework;
 
 namespace StarWarsGraphQLNetCore.Data.Migrations
 {
     [DbContext(typeof(StarWarsContext))]
-    partial class StarWarsContextModelSnapshot : ModelSnapshot
+    [Migration("20180609103422_Full")]
+    partial class Full
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
